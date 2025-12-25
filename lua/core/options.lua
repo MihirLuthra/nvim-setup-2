@@ -43,3 +43,9 @@ local undo_dir = vim.fn.stdpath("state") .. "/undo"
 -- vim.fn.mkdir(undo_dir, "p")
 vim.opt.undodir = undo_dir
 
+-- Extend the 'iskeyword' option to include the '-' character.
+-- 'iskeyword' defines which characters are considered part of a word.
+-- By default, '-' is treated as a word separator.
+-- Adding it means motions like 'w', 'b', 'cw', and 'ciw'
+-- will treat hyphenated text (e.g. my-variable-name) as a single word.
+vim.opt.iskeyword:append("-")
