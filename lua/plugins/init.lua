@@ -2,15 +2,25 @@
 -- Each entry describes: what to install, when to load, and how to configure.
 
 local specs = {
+    -- {
+    --     'projekt0n/github-nvim-theme',
+    --     name = 'github-theme',
+    --     lazy = false, -- make sure we load this during startup if it is your main colorscheme
+    --     priority = 1000, -- make sure to load this before all the other start plugins
+    --     config = function()
+    --         require('github-theme').setup()
+    --
+    --         vim.cmd('colorscheme github_light_high_contrast')
+    --     end
+    -- },
     {
-        'projekt0n/github-nvim-theme',
-        name = 'github-theme',
-        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        "navarasu/onedark.nvim",
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            require('github-theme').setup()
-
-            vim.cmd('colorscheme github_light_high_contrast')
+            require('onedark').setup {
+                style = 'light'
+            }
+            require('onedark').load()
         end
     },
     {
@@ -75,10 +85,10 @@ local specs = {
         end
     },
     {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" }
-    },
+        "nvim-treesitter/nvim-treesitter",
+        lazy = false,
+        build = ":TSUpdate",
+    }
 }
 
 local cmp_specs = require("plugins.cmp")
