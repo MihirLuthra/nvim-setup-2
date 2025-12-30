@@ -49,3 +49,6 @@ vim.opt.undodir = undo_dir
 -- Adding it means motions like 'w', 'b', 'cw', and 'ciw'
 -- will treat hyphenated text (e.g. my-variable-name) as a single word.
 vim.opt.iskeyword:append("-")
+
+-- vim.opt.nrformats = { "alpha", "bin", "hex" }
+

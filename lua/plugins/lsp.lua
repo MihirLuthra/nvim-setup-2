@@ -35,6 +35,7 @@ return {
                 ensure_installed = {
                     "rust_analyzer",
                     "bashls",
+                    "lua_ls",
                 }
             })
         end,

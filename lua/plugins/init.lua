@@ -88,15 +88,52 @@ local specs = {
         "nvim-treesitter/nvim-treesitter",
         lazy = false,
         build = ":TSUpdate",
-    }
+    },
+    {
+        -- Git commands in nvim, like Git blame
+        "tpope/vim-fugitive",
+    },
+    {
+        -- github plugin for GBrowse
+        "tpope/vim-rhubarb",
+        dependencies = {
+            "tpope/vim-fugitive"
+        }
+    },
+    {
+        -- bitbucket plugin for GBrowse
+        "tommcdo/vim-fubitive",
+        dependencies = {
+            "tpope/vim-fugitive"
+        }
+    },
+    {
+        -- Mainly for case switching of words, like crs, cru, etc
+        "tpope/vim-abolish",
+    },
+    {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+            library = {
+                -- See the configuration section for more details
+                -- Load luvit types when the `vim.uv` word is found
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            },
+        },
+    },
 }
 
 local cmp_specs = require("plugins.cmp")
 local lsp_specs = require("plugins.lsp")
 local bufferline_spec = require("plugins.bufferline")
+local telescope_spec = require("plugins.telescope")
+local harpoon_spec = require("plugins.harpoon")
 
 vim.list_extend(specs, cmp_specs)
 vim.list_extend(specs, lsp_specs)
 vim.list_extend(specs, { bufferline_spec })
+vim.list_extend(specs, { telescope_spec })
+vim.list_extend(specs, { harpoon_spec })
 
 return specs

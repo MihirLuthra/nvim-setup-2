@@ -1,6 +1,9 @@
 vim.keymap.set({ "n", "i" }, "<M-a>", "<cmd>BufferLineCyclePrev<CR>")
 vim.keymap.set({ "n", "i" }, "<M-s>", "<cmd>BufferLineCycleNext<CR>")
 
+vim.keymap.set("n", "<Tab>", "<cmd>BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<S-Tab>", "<cmd>BufferLineCyclePrev<CR>")
+
 vim.keymap.set({ "n", "i" }, "<M-1>", function() require("bufferline").go_to_buffer(1, true) end)
 vim.keymap.set({ "n", "i" }, "<M-2>", function() require("bufferline").go_to_buffer(2, true) end)
 vim.keymap.set({ "n", "i" }, "<M-3>", function() require("bufferline").go_to_buffer(3, true) end)

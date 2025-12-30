@@ -34,6 +34,9 @@ return {
           ["<Up>"] = cmp.mapping.select_prev_item(),
           ["<Down>"] = cmp.mapping.select_next_item(),
 
+          ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+          ["<Tab>"] = cmp.mapping.select_next_item(),
+
           -- Ctrl+Space opens the completion menu manually.
           ["<C-Space>"] = cmp.mapping.complete(),
 
