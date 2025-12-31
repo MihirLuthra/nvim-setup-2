@@ -17,10 +17,6 @@ vim.lsp.config("rust_analyzer", {
                 method = "connect",
                 server = "rust-analyzer",
             },
-
-            cargo = {
-                autoreload = false,
-            },
             check = {
                 invocationStrategy = "once",
                 overrideCommand = {
@@ -41,6 +37,21 @@ vim.lsp.config("rust_analyzer", {
                         "Cargo.toml",
                     },
                 },
+            },
+            procMacro = {
+                enable = false,
+            },
+            diagnostics = {
+                disabled = { "unresolved-proc-macro", "macro-error", "unresolved-macro-call" },
+            },
+            inlayHints = {
+                bindingModeHints = { enable = true },
+                chainingHints = { enable = true },
+                closingBraceHints = { enable = true },
+                closureReturnTypeHints = { enable = "always" },
+                lifetimeElisionHints = { enable = "always" },
+                parameterHints = { enable = true },
+                typeHints = { enable = true },
             },
         }
     },
