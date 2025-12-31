@@ -17,9 +17,16 @@ vim.api.nvim_create_autocmd("LspAttach", {
     -- Buffer-local mappings: they exist only for this buffer.
     local opts = { buffer = args.buf }
 
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+    if client and client.server_capabilities.inlayHintProvider then
+        vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+    end
+
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)   -- go to definition
     vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)         -- hover docs
     vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)   -- references
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)   -- implementations
 
     vim.keymap.set("n", "<leader>ra", vim.lsp.buf.rename, opts)      -- rename
     vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- code action
