@@ -7,6 +7,9 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 -- tab expands to spaces
 vim.opt.expandtab = true
+-- <TAB>/<BS> behaviour
+vim.opt.softtabstop = 4
+
 
 -- A newline
 vim.opt.smartindent = true
