@@ -15,9 +15,9 @@ return {
 
         telescope.load_extension("live_grep_args")
 
-        vim.keymap.set("n", "<leader>fw", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
+        vim.keymap.set("n", "<leader>ww", function() require("telescope").extensions.live_grep_args.live_grep_args() end)
         vim.keymap.set("n", "<leader>ff", "<cmd>Telescope fd<CR>")
-        vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>")
+        vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<CR>")
         vim.keymap.set("n", "<leader>fd", "<cmd>Telescope lsp_document_symbols<CR>")
     end
 }
